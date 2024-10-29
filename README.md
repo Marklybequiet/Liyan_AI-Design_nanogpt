@@ -25,6 +25,8 @@ This creates a `train.bin` and `val.bin` in that data directory. I have already 
 
 ## training for CPU
 
+before training, You need to create a new folder named `out-doupo` to store checkpoint file
+
 Because I don't have a GPU, I use a CPU for simple training
 
 ```sh
@@ -49,8 +51,22 @@ You can change the parameters inside. The files in config can provide parameter 
 
 ## generates samples
 
-Based on the configuration, the model checkpoints are being written into the `--out_dir` directory `out-shakespeare-char`. So once the training finishes we can sample from the best model by pointing the sampling script at this directory:
+Based on the configuration, the model checkpoints are being written into the `--out_dir` directory `out-doupo`. So once the training finishes we can sample from the best model by pointing the sampling script at this directory:
+
+CPU:
+
+```sh
+python sample.py --out_dir=out-doupo --device=cpu
+```
+
+GPU:
 
 ```sh
 python sample.py --out_dir=out-doupo
 ```
+
+## result
+
+![nanoGPT](assets/result1.jpg)
+
+![nanoGPT](assets/result2.jpg)
